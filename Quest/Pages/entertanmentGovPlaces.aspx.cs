@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Quest.Pages
+{
+    public partial class entertanmentGovPlaces : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                //Session["GovernID"] = 1;
+                //Session["Enttype"] = 2;
+            }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["Enttype"] = DDLType.SelectedValue;
+            GridView1.DataBind();
+        }
+    }
+}

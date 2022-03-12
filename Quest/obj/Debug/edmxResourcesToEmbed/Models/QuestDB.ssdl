@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="caroffer">
+    <Key>
+      <PropertyRef Name="carofferID" />
+    </Key>
+    <Property Name="carofferID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="350" />
+    <Property Name="CarModel" Type="nvarchar" MaxLength="150" />
+    <Property Name="CarMark" Type="nvarchar" MaxLength="150" />
+    <Property Name="priceperday" Type="float" />
+    <Property Name="contactCompany" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="entertainmentPlace">
+    <Key>
+      <PropertyRef Name="entertainmentPlaceID" />
+    </Key>
+    <Property Name="entertainmentPlaceID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="entName" Type="nvarchar" MaxLength="350" />
+    <Property Name="entAddress" Type="nvarchar" MaxLength="350" />
+    <Property Name="entDescr" Type="nvarchar(max)" />
+    <Property Name="entTypeID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="GovermentID" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="entertainType">
+    <Key>
+      <PropertyRef Name="entertainmentTypeID" />
+    </Key>
+    <Property Name="entertainmentTypeID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="typeDescr" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Governments">
+    <Key>
+      <PropertyRef Name="GovermentID" />
+    </Key>
+    <Property Name="GovermentID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GovName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SystemUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserTypeID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TourCompany">
+    <Key>
+      <PropertyRef Name="tourCompID" />
+    </Key>
+    <Property Name="tourCompID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompName" Type="nvarchar" MaxLength="350" />
+    <Property Name="ContactInfo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tourOffer">
+    <Key>
+      <PropertyRef Name="OfferID" />
+    </Key>
+    <Property Name="OfferID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaceDescr" Type="nvarchar" MaxLength="350" />
+    <Property Name="offerDescr" Type="nvarchar(max)" />
+    <Property Name="CompanyID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="GovernID" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="userCarReservation">
+    <Key>
+      <PropertyRef Name="userCarReservationID" />
+    </Key>
+    <Property Name="userCarReservationID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="carofferID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="datefrom" Type="datetime" />
+    <Property Name="dateto" Type="datetime" />
+    <Property Name="isConfirmed" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="userID" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="userTourReservation">
+    <Key>
+      <PropertyRef Name="userTourReservationID" />
+    </Key>
+    <Property Name="userTourReservationID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TourID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="dateFrom" Type="datetime" />
+    <Property Name="dateTo" Type="datetime" />
+    <Property Name="numberOfPersons" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="isConfirmend" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TypeDescr" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <Association Name="FK_entertainmentPlace_entertainType">
+    <End Role="entertainType" Type="Self.entertainType" Multiplicity="0..1" />
+    <End Role="entertainmentPlace" Type="Self.entertainmentPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entertainType">
+        <PropertyRef Name="entertainmentTypeID" />
+      </Principal>
+      <Dependent Role="entertainmentPlace">
+        <PropertyRef Name="entTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entertainmentPlace_Governments">
+    <End Role="Governments" Type="Self.Governments" Multiplicity="0..1" />
+    <End Role="entertainmentPlace" Type="Self.entertainmentPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Governments">
+        <PropertyRef Name="GovermentID" />
+      </Principal>
+      <Dependent Role="entertainmentPlace">
+        <PropertyRef Name="GovermentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUser_UserType">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="SystemUser">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tourOffer_Governments">
+    <End Role="Governments" Type="Self.Governments" Multiplicity="0..1" />
+    <End Role="tourOffer" Type="Self.tourOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Governments">
+        <PropertyRef Name="GovermentID" />
+      </Principal>
+      <Dependent Role="tourOffer">
+        <PropertyRef Name="GovernID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tourOffer_TourCompany">
+    <End Role="TourCompany" Type="Self.TourCompany" Multiplicity="0..1" />
+    <End Role="tourOffer" Type="Self.tourOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TourCompany">
+        <PropertyRef Name="tourCompID" />
+      </Principal>
+      <Dependent Role="tourOffer">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userCarReservation_caroffer">
+    <End Role="caroffer" Type="Self.caroffer" Multiplicity="0..1" />
+    <End Role="userCarReservation" Type="Self.userCarReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caroffer">
+        <PropertyRef Name="carofferID" />
+      </Principal>
+      <Dependent Role="userCarReservation">
+        <PropertyRef Name="carofferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userCarReservation_SystemUser">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1" />
+    <End Role="userCarReservation" Type="Self.userCarReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="userCarReservation">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userTourReservation_SystemUser">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1" />
+    <End Role="userTourReservation" Type="Self.userTourReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="userTourReservation">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userTourReservation_tourOffer">
+    <End Role="tourOffer" Type="Self.tourOffer" Multiplicity="0..1" />
+    <End Role="userTourReservation" Type="Self.userTourReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tourOffer">
+        <PropertyRef Name="OfferID" />
+      </Principal>
+      <Dependent Role="userTourReservation">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuestModelStoreContainer">
+    <EntitySet Name="caroffer" EntityType="Self.caroffer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="entertainmentPlace" EntityType="Self.entertainmentPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="entertainType" EntityType="Self.entertainType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Governments" EntityType="Self.Governments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TourCompany" EntityType="Self.TourCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tourOffer" EntityType="Self.tourOffer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userCarReservation" EntityType="Self.userCarReservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userTourReservation" EntityType="Self.userTourReservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_entertainmentPlace_entertainType" Association="Self.FK_entertainmentPlace_entertainType">
+      <End Role="entertainType" EntitySet="entertainType" />
+      <End Role="entertainmentPlace" EntitySet="entertainmentPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entertainmentPlace_Governments" Association="Self.FK_entertainmentPlace_Governments">
+      <End Role="Governments" EntitySet="Governments" />
+      <End Role="entertainmentPlace" EntitySet="entertainmentPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUser_UserType" Association="Self.FK_SystemUser_UserType">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="SystemUser" EntitySet="SystemUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tourOffer_Governments" Association="Self.FK_tourOffer_Governments">
+      <End Role="Governments" EntitySet="Governments" />
+      <End Role="tourOffer" EntitySet="tourOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tourOffer_TourCompany" Association="Self.FK_tourOffer_TourCompany">
+      <End Role="TourCompany" EntitySet="TourCompany" />
+      <End Role="tourOffer" EntitySet="tourOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userCarReservation_caroffer" Association="Self.FK_userCarReservation_caroffer">
+      <End Role="caroffer" EntitySet="caroffer" />
+      <End Role="userCarReservation" EntitySet="userCarReservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userCarReservation_SystemUser" Association="Self.FK_userCarReservation_SystemUser">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="userCarReservation" EntitySet="userCarReservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userTourReservation_SystemUser" Association="Self.FK_userTourReservation_SystemUser">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="userTourReservation" EntitySet="userTourReservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userTourReservation_tourOffer" Association="Self.FK_userTourReservation_tourOffer">
+      <End Role="tourOffer" EntitySet="tourOffer" />
+      <End Role="userTourReservation" EntitySet="userTourReservation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

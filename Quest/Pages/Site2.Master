@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.Master.cs" Inherits="Quest.Pages.Site2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="description" name="description"/>
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author"/>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no"/>
+  
+  <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+
+ 
+
+  <title>Quest</title>  
+
+<link href="assets/main.a3f694c0.css" rel="stylesheet" type="text/css"/>
+<link href="assets/ConfirmReservation.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/main.41beeca9.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <header>
+        <nav class="navbar  navbar-fixed-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+       
+       <h3><a href="SignIn.aspx" title="" class="active">Sign In</a>
+       </h3>
+			
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./Default.aspx" title="" class="active">Home</a></li>
+          <li><a href="./AdminShowTourReservation.aspx" title=""> Tour Reservation</a></li>
+            <li><a href="./AdminShowCarReservation.aspx" title=""> Car Reservation</a></li>
+          <li><a href="./AdminAddEntertainment.aspx" title="">Add Entertainment</a></li>
+          <li><a href="./AdminAddCarOffer.aspx" title=""> Add Car </a></li>
+          <li><a href="./AdminAddComp.aspx" title="">Add Tour Company</a></li>
+         <%-- <li>
+            <p>
+              <a href="./download.html" class="btn btn-primary navbar-btn" title="">Download</a>
+            </p>
+          </li>--%>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+        
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    navActivePage();
+  });
+</script>
+
+   
+    </form>
+</body>
+</html>

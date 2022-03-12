@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.Master.cs" Inherits="Quest.Pages.Site3" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="description" name="description"/>
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author"/>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no"/>
+  
+  <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+
+ 
+
+  <title>Quest</title>  
+
+<link href="assets/main.a3f694c0.css" rel="stylesheet" type="text/css"/>
+<link href="assets/ConfirmReservation.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/main.41beeca9.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <header>
+        <nav class="navbar  navbar-fixed-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+       
+       <h3><a href="SignIn.aspx" title="" class="active">Sign In</a>
+       </h3>
+			
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./Default.aspx" title="" class="active">Home</a></li>
+          <li><a href="./AboutUs.aspx" title=""> About</a></li>
+          <li><a href="./ContactUS.aspx" title="">Contact</a></li>
+         <%-- <li>
+            <p>
+              <a href="./download.html" class="btn btn-primary navbar-btn" title="">Download</a>
+            </p>
+          </li>--%>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+        
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    navActivePage();
+  });
+</script>
+
+   
+    </form>
+</body>
+</html>

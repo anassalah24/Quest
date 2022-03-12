@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea25d0a49aa44c61b8454715042dd73c" Name="Diagram1">
+        <EntityTypeShape EntityType="QuestModel.caroffer" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.entertainmentPlace" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.entertainType" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.Government" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.SystemUser" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.TourCompany" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.tourOffer" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.userCarReservation" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.userTourReservation" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestModel.UserType" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="QuestModel.FK_userCarReservation_caroffer" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_entertainmentPlace_entertainType" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_entertainmentPlace_Governments" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_tourOffer_Governments" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_SystemUser_UserType" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_userCarReservation_SystemUser" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_userTourReservation_SystemUser" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_tourOffer_TourCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestModel.FK_userTourReservation_tourOffer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
